@@ -1,8 +1,9 @@
-const http = require('http');
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-const port = process.env.PORT || 3000;
+app.use(express.static("."));
 
-http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end('<h1>Lab 2: Heroku deploy works!</h1>');
-}).listen(port);
+app.listen(PORT, () => {
+  console.log("Running on port " + PORT);
+});
